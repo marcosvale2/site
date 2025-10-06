@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Sobre — Marcos Vinicius</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="site-header small">
+    <div class="container">
+      <h1 data-pt="Sobre — Marcos Vinicius" data-en="About — Marcos Vinicius">Sobre — Marcos Vinicius</h1>
+
+      <!-- Botões de idioma -->
+      <div class="language-switcher">
+        <button id="pt-btn"><span>PT</span></button>
+        <button id="en-btn"><span>EN</span></button>
+      </div>
+
+      <nav class="cta">
+        <a href="index.html" class="btn ghost" data-pt="Voltar" data-en="Back">Voltar</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="about">
+      <h2 data-pt="Quem sou" data-en="Who I am">Quem sou</h2>
+      <p data-pt="Sou Marcos Vinicius, estudante de Engenharia da Computação e tecnólogo em Tecnologia da Informação. Tenho experiência em desenvolvimento web, integração de sistemas e análise de dados. Busco oportunidades para aplicar meus conhecimentos e crescer profissionalmente."
+         data-en="I am Marcos Vinicius, a Computer Engineering student and Information Technology technologist. I have experience in web development, system integration, and data analysis. I am looking for opportunities to apply my knowledge and grow professionally.">
+        Sou Marcos Vinicius, estudante de Engenharia da Computação e tecnólogo em Tecnologia da Informação. Tenho experiência em desenvolvimento web, integração de sistemas e análise de dados. Busco oportunidades para aplicar meus conhecimentos e crescer profissionalmente.
+      </p>
+
+      <h3 data-pt="Habilidades" data-en="Skills">Habilidades</h3>
+      <ul>
+        <li data-pt="HTML, CSS, JavaScript, React" data-en="HTML, CSS, JavaScript, React">HTML, CSS, JavaScript, React</li>
+        <li data-pt="Python, Java, C++" data-en="Python, Java, C++">Python, Java, C++</li>
+        <li data-pt="Banco de dados MySQL" data-en="MySQL Databases">Banco de dados MySQL</li>
+        <li data-pt="Desenvolvimento Full Stack" data-en="Full Stack Development">Desenvolvimento Full Stack</li>
+      </ul>
+
+      <h3 data-pt="Objetivo" data-en="Objective">Objetivo</h3>
+      <p data-pt="Atualmente busco oportunidades em desenvolvimento web, projetos freelance e posições em empresas de tecnologia onde possa aplicar minhas habilidades e aprender com desafios reais."
+         data-en="I am currently seeking opportunities in web development, freelance projects, and positions in technology companies where I can apply my skills and learn from real-world challenges.">
+        Atualmente busco oportunidades em desenvolvimento web, projetos freelance e posições em empresas de tecnologia onde possa aplicar minhas habilidades e aprender com desafios reais.
+      </p>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>© <span id="year2"></span> Marcos Vinicius</p>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('year2').textContent = new Date().getFullYear();
+
+    // Troca de idioma com persistência
+    const ptBtn = document.getElementById('pt-btn');
+    const enBtn = document.getElementById('en-btn');
+    const translatable = document.querySelectorAll('[data-pt][data-en]');
+
+    function setLanguage(lang) {
+      translatable.forEach(el => el.textContent = lang === 'pt' ? el.getAttribute('data-pt') : el.getAttribute('data-en'));
+      localStorage.setItem('language', lang);
+    }
+
+    ptBtn.addEventListener('click', () => setLanguage('pt'));
+    enBtn.addEventListener('click', () => setLanguage('en'));
+
+    const savedLang = localStorage.getItem('language') || 'pt';
+    setLanguage(savedLang);
+  </script>
+</body>
+</html>
